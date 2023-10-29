@@ -23,8 +23,7 @@ class Label(Figure):
         secondCU = ttk.Label(text="КУ второго правила")
         firstRule = ttk.Label(text="Первое правило")
         secondRule = ttk.Label(text="Второе правило")
-        otvet = ttk.Label(text="Результат")
-        labels = [maxCU, minCU, firstCU, secondCU, firstRule, secondRule, otvet]
+        labels = [maxCU, minCU, firstCU, secondCU, firstRule, secondRule]
         ParametrsLabel(labels)
         maxCU.place(x=25, y=25)
         minCU.place(x=25, y=70)
@@ -32,24 +31,29 @@ class Label(Figure):
         secondCU.place(x=25, y=160)
         firstRule.place(x=25, y=205)
         secondRule.place(x=25, y=250)
-        otvet.place(x=200, y=250)
 
 
 class Entry(Figure):
-    def __init__(self, maxCU, minCU, firstCU, secondCU):
+    def __init__(self, maxCU, minCU, firstCU, secondCU, firstRule, secondRule):
         self.maxCU = maxCU
         self.minCU = minCU
         self.firstCU = firstCU
         self.secondCU = secondCU
+        self.firstRule = firstRule
+        self.secondRule = secondRule
 
     def Sozdanie(self, window):
         maxCU = ttk.Entry(width=20, textvariable=self.maxCU)
         minCU = ttk.Entry(width=20, textvariable=self.minCU)
         firstCU = ttk.Entry(width=20, textvariable=self.firstCU)
         secondCU = ttk.Entry(width=20, textvariable=self.secondCU)
+        firstRule = ttk.Entry(width=38, textvariable=self.firstRule, state="readonly")
+        secondRule = ttk.Entry(width=38, textvariable=self.secondRule, state="readonly")
         maxCU.place(x=220, y=25)
         minCU.place(x=220, y=70)
         firstCU.place(x=220, y=115)
         secondCU.place(x=220, y=160)
+        firstRule.place(x=220, y=205)
+        secondRule.place(x=220, y=250)
 
 

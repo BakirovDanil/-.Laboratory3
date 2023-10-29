@@ -10,10 +10,14 @@ maxCu = DoubleVar()
 minCu = DoubleVar()
 firstCu = DoubleVar()
 secondCu = DoubleVar()
+firstRule = StringVar()
+firstRule.set("ЕСЛИ заказы падают, ТО прибыль падает.")
+secondRule = StringVar()
+secondRule.set("ЕСЛИ заказы растут, ТО прибыль растет.")
 
 
 def Maths():
-    Calculation.Raschet(firstCu, secondCu)
+    Calculation.Raschet(firstCu, secondCu, maxCu, minCu)
 
 
 def Finish():
@@ -28,7 +32,7 @@ def MainForm(window):
     window.protocol("WM_DELETE_WINDOW", Finish)
     Label1 = Object.Label()
     Label1.Sozdanie(window)
-    Entry1 = Object.Entry(maxCu, minCu, firstCu, secondCu)
+    Entry1 = Object.Entry(maxCu, minCu, firstCu, secondCu, firstRule, secondRule)
     Entry1.Sozdanie(window)
     window.mainloop()
 
