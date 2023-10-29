@@ -5,13 +5,13 @@ def Raschet(firstCu, secondCu, maxCu, minCu):
     if Proverka(firstCu, secondCu, maxCu, minCu):
         firstCu1 = float(firstCu.get())
         secondCu2 = float(secondCu.get())
-        result = firstCu1 + (1 - firstCu1 * secondCu2)
+        result = ((1 - firstCu1)*secondCu2 + firstCu1)
         if result > maxCu.get():
-            showinfo(title="Вывод", message="Вывод: прибыль растет. Полученный КУ: " + result)
+            showinfo("Вывод", "Вывод: прибыль растет. Полученный КУ: " + str(result))
         elif result > minCu.get():
-            showinfo(title="Вывод", message="Вывод: прибыль падает")
+            showinfo("Вывод", "Вывод: прибыль падает. Полученный КУ: " + str(result))
         elif minCu < result < maxCu:
-            showinfo(title="Вывод", message="Вывод: система не может сделать вывод, т.к. значение находится между граничными КУ")
+            showinfo("Вывод", "Вывод: система не может сделать вывод, т.к. значение находится между граничными КУ. Полученный КУ: " + str(result))
     else:
         showerror(title="Ошибка", message="Введенные данные некорректны")
         firstCu.set(0.0)
