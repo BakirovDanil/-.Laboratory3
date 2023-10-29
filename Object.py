@@ -1,5 +1,6 @@
 from tkinter import ttk
 from abc import ABC
+import Calculation
 
 
 def ParametrsLabel(labels):
@@ -22,7 +23,8 @@ class Label(Figure):
         secondCU = ttk.Label(text="КУ второго правила")
         firstRule = ttk.Label(text="Первое правило")
         secondRule = ttk.Label(text="Второе правило")
-        labels = [maxCU, minCU, firstCU, secondCU, firstRule, secondRule]
+        otvet = ttk.Label(text="Результат")
+        labels = [maxCU, minCU, firstCU, secondCU, firstRule, secondRule, otvet]
         ParametrsLabel(labels)
         maxCU.place(x=25, y=25)
         minCU.place(x=25, y=70)
@@ -30,6 +32,7 @@ class Label(Figure):
         secondCU.place(x=25, y=160)
         firstRule.place(x=25, y=205)
         secondRule.place(x=25, y=250)
+        otvet.place(x=200, y=250)
 
 
 class Entry(Figure):
@@ -48,3 +51,5 @@ class Entry(Figure):
         minCU.place(x=220, y=70)
         firstCU.place(x=220, y=115)
         secondCU.place(x=220, y=160)
+
+

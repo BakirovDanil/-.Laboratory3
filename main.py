@@ -6,15 +6,14 @@ import Calculation
 
 Frame = Tk()
 
-maxCu = float(0)
-minCu = float(0)
-firstCu = float(0)
-secondCu = float(0)
+maxCu = DoubleVar()
+minCu = DoubleVar()
+firstCu = DoubleVar()
+secondCu = DoubleVar()
 
 
-def Button():
-    button = ttk.Button(text="Произвести расчет", command=Calculation.CU(firstCu, secondCu))
-    button.place(x=400, y=25)
+def Maths():
+    Calculation.Raschet(firstCu, secondCu)
 
 
 def Finish():
@@ -31,8 +30,10 @@ def MainForm(window):
     Label1.Sozdanie(window)
     Entry1 = Object.Entry(maxCu, minCu, firstCu, secondCu)
     Entry1.Sozdanie(window)
-    Button()
     window.mainloop()
 
+
+button = ttk.Button(text="Произвести расчет", command=Maths)
+button.place(x=400, y=25)
 
 MainForm(Frame)
