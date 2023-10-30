@@ -1,6 +1,14 @@
 from tkinter.messagebox import showerror, showinfo
 
 
+def on_key_press(event):
+    if event.char.lower() not in ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\x08']:
+        return "break"
+    elif event.char == '.' in event.widget.get():
+        return "break"
+
+
+
 def Raschet(firstCu, secondCu, maxCu, minCu):
     if Proverka(firstCu, secondCu, maxCu, minCu):
         firstCu1 = float(firstCu.get())
@@ -13,7 +21,7 @@ def Raschet(firstCu, secondCu, maxCu, minCu):
         elif minCu.get() < result < maxCu.get():
             showinfo("Вывод", "Вывод: система не может сделать вывод, т.к. значение находится между граничными КУ. Полученный КУ: " + str(result))
     else:
-        showerror(title="Ошибка", message="Введенные данные некорректны")
+        showerror(title="Ошибка", message="Введенные данные некорректны. Либо они равны нулю, либо равны единице")
         firstCu.set(0.0)
         secondCu.set(0.0)
         maxCu.set(0.0)
@@ -27,7 +35,7 @@ def Proverka(firstCu, secondCu, maxCu, minCu):
         secondCu = float(secondCu.get())
         maxCu = float(maxCu.get())
         minCu = float(minCu.get())
-        if firstCu < 1 and secondCu < 1 and maxCu < 1 and minCu < 1:
+        if firstCu < 1 and secondCu < 1 and maxCu < 1 and minCu < 1 and firstCu > 0 and secondCu > 0 and maxCu > 0 and minCu > 0:
             return True
     except Exception as e:
         return False

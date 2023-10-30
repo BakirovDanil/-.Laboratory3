@@ -49,6 +49,9 @@ class Entry(Figure):
         secondCU = ttk.Entry(width=20, textvariable=self.secondCU)
         firstRule = ttk.Entry(width=38, textvariable=self.firstRule, state="readonly")
         secondRule = ttk.Entry(width=38, textvariable=self.secondRule, state="readonly")
+        entrys=[maxCU, minCU, firstCU, secondCU]
+        for i in entrys:
+            i.bind("<Key>", Calculation.on_key_press)
         maxCU.place(x=220, y=25)
         minCU.place(x=220, y=70)
         firstCU.place(x=220, y=115)
